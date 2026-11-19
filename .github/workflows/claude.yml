@@ -3,10 +3,10 @@
 #
 # Setup (once):
 #   1. Install the Claude GitHub App on this repo: https://github.com/apps/claude
-#   2. Add ONE repository secret (Settings > Secrets and variables > Actions):
-#      - CLAUDE_CODE_OAUTH_TOKEN: uses your Claude subscription (create it with `claude setup-token`), or
-#      - ANTHROPIC_API_KEY: a Console API key, billed per token.
-#      An unset secret is passed as an empty string and ignored.
+#   2. Add the repository secret CLAUDE_CODE_OAUTH_TOKEN
+#      (Settings > Secrets and variables > Actions > New repository secret).
+#      Create the token with `claude setup-token`; usage counts against
+#      your Claude subscription, so no separate API billing is needed.
 #
 # Usage: comment e.g. "@claude review this PR" on a pull request.
 # Only users with write access to the repo can trigger it.
@@ -48,4 +48,3 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
